@@ -10,7 +10,28 @@ const App = () => {
   const [result1, setResult1] = useState('');
   const [result2, setResult2] = useState('');
 
+  function validate() {
+    if (!mortage) {
+      alert('Please enter a Mortgage Amount!');
+      return false;
+    }
+    if (!term) {
+      alert('Please enter a Mortgage Term!');
+      return false;
+    }
+    if (!persent) {
+      alert('Please enter an Interest Rate!');
+      return false;
+    }
+    return true;
+  }
+
+
   function onSubmit() {
+    let isValid = validate()
+    if (!isValid) {
+      return
+    }
     setFlex(false);
     let numRes1 = persent / (100 * 12)
     let numRes2 = term * 12
